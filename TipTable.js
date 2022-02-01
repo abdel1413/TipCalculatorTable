@@ -29,7 +29,8 @@ const printingTipTable = (finalTip) => {
   console.log(tableContent);
 };
 
-const tipCalculator2 = (sum, percentage, local, currency, printingTipTable) => {
+//  printingTipTable passed as variable callBack for calling back
+const tipCalculator2 = (sum, percentage, local, currency, callBack) => {
   let tip = sum * (percentage / 100);
   let total = sum + tip;
 
@@ -39,7 +40,8 @@ const tipCalculator2 = (sum, percentage, local, currency, printingTipTable) => {
     Tip: formatted2(local, currency, tip),
     Total: formatted2(local, currency, total),
   };
-  printingTipTable(finalTip);
+
+  callBack(finalTip); //  printingTipTable passed as variable callBack
 };
 
 tipCalculator2(20.9, 9, "en-EN", "USD", printingTipTable);
